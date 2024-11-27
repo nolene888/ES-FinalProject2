@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity(name="response_table")
@@ -33,6 +35,8 @@ public class Response {
 	@NotNull
 	private Long adminId;
 	
+	
+	
 	public Response() {
 		
 	}
@@ -52,14 +56,6 @@ public class Response {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Long getFeedbackId() {
-		return feedbackId;
-	}
-
-	public void setFeedbackId(Long feedbackId) {
-		this.feedbackId = feedbackId;
 	}
 
 	public String getResponse() {

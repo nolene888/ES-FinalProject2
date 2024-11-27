@@ -53,30 +53,37 @@ public class FeedbackController {
     @Path("/getFeedbackByCategory")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Feedback> getFeedbackByCategory(@QueryParam("categoryId") Long categoryId) {
-        System.out.println("Received categoryId: " + categoryId);  // Log the categoryId received
+        System.out.println("Received categoryId: " + categoryId);  
         return feedbackService.getFeedbackByCategory(categoryId);
     }
 	
 	@POST
-	@Path("/{id}/response")  // Define the URL path, including the feedback ID
+	@Path("/{id}/response")  
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response respondToFeedback(@PathParam("id") Long feedbackId, ResponseDTO responseDTO) {
-	    // Check if the feedback exists
+	    
 	    Feedback feedback = feedbackRepository.findById(feedbackId).orElse(null);
 	    if (feedback == null) {
 	        throw new RuntimeException("Feedback not found");
 	    }
 
-	    // Extract admin ID and response text from the DTO
+	    
 	    Long adminId = responseDTO.getAdminId();
 	    String responseText = responseDTO.getResponseText();
 
-	    // Create and save the response
+	    
 	    Response response = new Response(feedbackId, responseText, LocalDateTime.now(), adminId);
-	    return responseRepository.save(response);  // Save and return the response
+	    return responseRepository.save(response);  
 	}
-
+	
+	@GET
+	@Path("/{id}/responses")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getResponsesForFeedback(@PathParam("id") Long feedbackId) {
+		
+		return feedbackService.getFeedbackResponse(feedbackId);
+	}
 		
 }
 

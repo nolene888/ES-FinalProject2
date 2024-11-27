@@ -1,7 +1,10 @@
 package app.entity;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +17,6 @@ public class Feedback {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column
 	private Long id;
 	
 	@Column
@@ -24,6 +26,7 @@ public class Feedback {
 	@Column
 	@NotNull
 	private String content;
+
 	
 	@Column
 	@NotNull
@@ -46,6 +49,8 @@ public class Feedback {
 		this.categoryId = categoryId;
 	}
 
+
+	
 	public Long getId() {
 		return id;
 	}
