@@ -84,6 +84,13 @@ public class FeedbackController {
 		
 		return feedbackService.getFeedbackResponse(feedbackId);
 	}
+	
+	@GET
+    @Path("/allfeedback")
+    @Produces(MediaType.APPLICATION_JSON)
+	public List<Feedback> getAllFeedback() {
+        return feedbackRepository.findAll();
+    }
 		
 }
 

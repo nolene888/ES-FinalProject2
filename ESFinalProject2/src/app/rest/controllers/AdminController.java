@@ -19,13 +19,13 @@ public class AdminController
 	@Autowired
     private AdminRepository adminRepository;
 
-    // POST method to add a new admin
+    
     @POST
-    @Path("/add") // Define the path for this POST request
-    @Consumes(MediaType.APPLICATION_JSON) // Define that this method consumes JSON
-    @Produces(MediaType.APPLICATION_JSON) // Define that this method produces JSON
+    @Path("/add") 
+    @Consumes(MediaType.APPLICATION_JSON) 
+    @Produces(MediaType.APPLICATION_JSON) 
     public Admin addAdmin(Admin admin) {
-        // Save the admin entity to the database
+        
         return adminRepository.save(admin);
     }
 }

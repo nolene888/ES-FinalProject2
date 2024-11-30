@@ -11,4 +11,5 @@ import app.entity.Feedback;
 public interface FeedbackRepository extends JpaRepository<Feedback, Long>{
 
 	List<Feedback> findByCategoryId(Long categoryId);
+
 }

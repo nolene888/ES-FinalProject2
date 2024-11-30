@@ -26,6 +26,10 @@ public class Admin {
 	@Column
 	@NotNull
 	private String role;
+	
+	 @Column
+	 @NotNull
+	 private String cellphoneNumber;
 
 	public Admin() {
 		
@@ -36,6 +40,7 @@ public class Admin {
 		this.name = name;
 		this.email = email;
 		this.role = role;
+		this.cellphoneNumber = cellphoneNumber;
 	}
 
 	public Long getId() {
@@ -69,10 +74,18 @@ public class Admin {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
+	public String getCellphoneNumber() {
+        return cellphoneNumber;
+    }
+
+    public void setCellphoneNumber(String cellphoneNumber) {
+        this.cellphoneNumber = cellphoneNumber;
+    }
 
 	@Override
 	public String toString() {
-		return "Admin [id=" + id + ", name=" + name + ", email=" + email + ", role=" + role + "]";
+		return "Admin [id=" + id + ", name=" + name + ", email=" + email + ", role=" + role + ", cellphoneNumber=" + cellphoneNumber + "]";
 	}
 	
 	
